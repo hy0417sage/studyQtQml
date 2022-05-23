@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/new/img">
+        <file>about.png</file>
+        <file>aboutqt.png</file>
+        <file>Copy-icon.png</file>
+        <file>exit.png</file>
+        <file>open.png</file>
+        <file>Paste-icon.png</file>
+        <file>Redo-icon.png</file>
+        <file>save.png</file>
+        <file>undo-icon.svg</file>
+    </qresource>
+</RCC>
