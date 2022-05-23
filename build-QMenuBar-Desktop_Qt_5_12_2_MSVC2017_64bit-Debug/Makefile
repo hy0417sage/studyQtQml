@@ -245,6 +245,7 @@ Makefile: ..\QMenuBar\QMenuBar.pro C:\QT\Qt5.12.2\5.12.2\msvc2017_64\mkspecs\win
 		C:\QT\Qt5.12.2\5.12.2\msvc2017_64\mkspecs\features\yacc.prf \
 		C:\QT\Qt5.12.2\5.12.2\msvc2017_64\mkspecs\features\lex.prf \
 		..\QMenuBar\QMenuBar.pro \
+		C:\QT\Qt5.12.2\5.12.2\msvc2017_64\lib\Qt5PrintSupport.prl \
 		C:\QT\Qt5.12.2\5.12.2\msvc2017_64\lib\Qt5Widgets.prl \
 		C:\QT\Qt5.12.2\5.12.2\msvc2017_64\lib\Qt5Gui.prl \
 		C:\QT\Qt5.12.2\5.12.2\msvc2017_64\lib\Qt5Core.prl \
@@ -418,6 +419,7 @@ C:\QT\Qt5.12.2\5.12.2\msvc2017_64\mkspecs\features\exceptions.prf:
 C:\QT\Qt5.12.2\5.12.2\msvc2017_64\mkspecs\features\yacc.prf:
 C:\QT\Qt5.12.2\5.12.2\msvc2017_64\mkspecs\features\lex.prf:
 ..\QMenuBar\QMenuBar.pro:
+C:\QT\Qt5.12.2\5.12.2\msvc2017_64\lib\Qt5PrintSupport.prl:
 C:\QT\Qt5.12.2\5.12.2\msvc2017_64\lib\Qt5Widgets.prl:
 C:\QT\Qt5.12.2\5.12.2\msvc2017_64\lib\Qt5Gui.prl:
 C:\QT\Qt5.12.2\5.12.2\msvc2017_64\lib\Qt5Core.prl:

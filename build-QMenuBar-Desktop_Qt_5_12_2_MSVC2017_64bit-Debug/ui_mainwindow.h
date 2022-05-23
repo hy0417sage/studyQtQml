@@ -16,7 +16,9 @@
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTextEdit>
 #include <QtWidgets/QToolBar>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -33,7 +35,10 @@ public:
     QAction *actionRedo;
     QAction *actionAbout;
     QAction *actionAbout_QT;
+    QAction *actionPrint;
     QWidget *centralWidget;
+    QVBoxLayout *verticalLayout;
+    QTextEdit *textEdit;
     QMenuBar *menuBar;
     QMenu *menuFile;
     QMenu *menuEdit;
@@ -91,8 +96,19 @@ public:
         QIcon icon8;
         icon8.addFile(QString::fromUtf8(":/new/img/save.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionAbout_QT->setIcon(icon8);
+        actionPrint = new QAction(MainWindow);
+        actionPrint->setObjectName(QString::fromUtf8("actionPrint"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
+        verticalLayout = new QVBoxLayout(centralWidget);
+        verticalLayout->setSpacing(6);
+        verticalLayout->setContentsMargins(11, 11, 11, 11);
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        textEdit = new QTextEdit(centralWidget);
+        textEdit->setObjectName(QString::fromUtf8("textEdit"));
+
+        verticalLayout->addWidget(textEdit);
+
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
@@ -106,7 +122,7 @@ public:
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
-        MainWindow->addToolBar(Qt::LeftToolBarArea, mainToolBar);
+        MainWindow->addToolBar(Qt::TopToolBarArea, mainToolBar);
         MainWindow->insertToolBarBreak(mainToolBar);
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName(QString::fromUtf8("statusBar"));
@@ -124,6 +140,7 @@ public:
         menuEdit->addAction(actionPaste);
         menuEdit->addAction(actionUndo);
         menuEdit->addAction(actionRedo);
+        menuEdit->addAction(actionPrint);
         menuAbout->addAction(actionAbout);
         menuAbout->addAction(actionAbout_QT);
         mainToolBar->addAction(actionOpen);
@@ -153,6 +170,7 @@ public:
         actionRedo->setText(QApplication::translate("MainWindow", "Redo", nullptr));
         actionAbout->setText(QApplication::translate("MainWindow", "About", nullptr));
         actionAbout_QT->setText(QApplication::translate("MainWindow", "About QT", nullptr));
+        actionPrint->setText(QApplication::translate("MainWindow", "Print", nullptr));
         menuFile->setTitle(QApplication::translate("MainWindow", "File", nullptr));
         menuEdit->setTitle(QApplication::translate("MainWindow", "Edit", nullptr));
         menuAbout->setTitle(QApplication::translate("MainWindow", "About", nullptr));

@@ -30,3 +30,18 @@ void MainWindow::on_actionAbout_QT_triggered()
 {
     QApplication::aboutQt();
 }
+
+
+//Print
+void MainWindow::on_actionPrint_triggered()
+{
+    QPrinter printer;
+    QPrintDialog dialog(&printer, this);
+    dialog.setWindowTitle("Print Document");
+    if(ui->textEdit->textCursor().hasSelection())
+        dialog.addEnabledOption(QAbstractPrintDialog::PrintSelection);
+
+    if(dialog.exec() != QDialog::Accepted){
+        return;
+    }
+}

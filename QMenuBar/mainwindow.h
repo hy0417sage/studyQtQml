@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 #include <QMessageBox>
+#include <QPrinter>
+#include <QPrintDialog>
 
 namespace Ui {
 class MainWindow;
@@ -22,6 +24,8 @@ private slots:
     void on_actionAbout_triggered();
 
     void on_actionAbout_QT_triggered();
+
+    void on_actionPrint_triggered();
 
 private:
     Ui::MainWindow *ui;
