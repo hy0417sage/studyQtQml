@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>TTextEdit.qml</file>
+        <file>textedit.qml</file>
+    </qresource>
+</RCC>
