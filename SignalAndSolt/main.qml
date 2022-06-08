@@ -24,7 +24,6 @@ Window {
         id:stackView
         anchors.fill: parent
 
-
         initialItem: Item  //제일 첫화면을 설정하는 것으로 설정을 안하면 되돌아오기가 안된다.
         {
             objectName: "mainscreen"//이전화면에 대한 정보를 얻기위해 설정하는 값
@@ -41,7 +40,6 @@ Window {
                 font.pixelSize: 30
                 font.bold: true
             }
-
             Text
             {
                 id:testText
@@ -50,7 +48,6 @@ Window {
                 font.pixelSize: 50
                 font.bold: true
             }
-
             Button
             {
                 id:intButton //int형 데이터를 매개변수에 넣어서 cpp함수를 호출하는 버튼
@@ -60,7 +57,7 @@ Window {
                 text:"int data"
                 onClicked:
                 {
-                    console.log("qml signal intButton click")
+                    console.log("qml 시그널 버튼 눌렸다.")
                     qmlSignalintData(1000); //qml 에서 signal을 발생시키는 부분
                 }
             }
@@ -77,7 +74,6 @@ Window {
                     qmlSignalStringData("this is qml signal data"); //qml 에서 signal을 발생시키는 부분
                 }
             }
-
             Button
             {
                 id:nextButton
@@ -105,6 +101,3 @@ Window {
         }
     }
 }
-
-
-

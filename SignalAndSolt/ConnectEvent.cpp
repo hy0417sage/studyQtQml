@@ -5,11 +5,10 @@ ConnectEvent::ConnectEvent()
     cout << "ConnectEvent" << endl;
 }
 
-ConnectEvent::~ConnectEvent()
+ConnectEvent::~ConnectEvent() // 소멸자
 {
 
 }
-
 
 void ConnectEvent::cppSignaltoQmlSlot()
 {
@@ -27,15 +26,12 @@ void ConnectEvent::cppSignaltoQmlSlot()
 void ConnectEvent::setWindow(QQuickWindow* Window)
 {
     mMainView = Window;//connection을 해주기 위해 윈도우를 등록
-
     cppSignaltoQmlSlot();//윈도우 등록과 동시에 connection 등록
 }
 
 void ConnectEvent::cppSlotStringData(QVariant stringData)// 새로추가
 {
-    cout << "cppSlotTestData call" << endl;
     std::string data_str = stringData.toString().toStdString();//QVariant를 std::string으로 변환
-    cout << "cppSlotTestData data_str: " << data_str << endl;
 }
 
 void ConnectEvent::cppSlotintData(QVariant intData)// 새로추가

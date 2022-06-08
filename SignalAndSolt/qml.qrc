@@ -2,5 +2,7 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>connectEvent.qml</file>
+        <file>AlarmDialog.qml</file>
+        <file>TumblerDelegate.qml</file>
     </qresource>
 </RCC>
