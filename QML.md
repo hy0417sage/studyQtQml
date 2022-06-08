@@ -57,22 +57,68 @@ Keys.onEscapePressed:{
 - Item을 확장해서 영역을 색상으로 채우는 기능을 제공한다.
 - border.color와 border.width로 정의되는 테두리도 지원한다.
 - radius 속성을 사용해서 모서리를 둥글게 만들 수도 있다.
+```qml
+Rectangle{
+    id: rect1
+    x: 12; y: 12
+    width: 76; height: 96
+    color: "lightsteelblue"
+}
+
+Rectangle{
+    id: rect2
+    x: 112; y: 12
+    width: 76; height: 96
+    border.color: "lightsteelblue"
+    border.width: 4
+    radius: 8
+}
+```
 </br>
 
 ### Text
 - 텍스트롤 표시하기 위함
 - 텍스트는 horizontalAlignment와 verticalAlignment속성을 사용해서 양 끝 혹은 가운데로 정렬할 수 있음
 - warpMode 속성을 사용하여 텍스트가 자동으로 줄바꿈 되도록 설정할 수 있다.
+```qml
+Text{
+    text: "The quick brown fox"
+    color: "#303030"
+    font.family: "Ubuntu"
+    font.pixelSize: 28
+}
+```
 </br>
 
 ### Image
 - image element는 다양한 포맷의 이미지를 화면에 표시할 수 있다.
+```qml
+Image{
+    x:12; y:12
+    source: "assets/triangle_red.png"
+}
+```
 </br>
 
 ### MouseArea
 - element들과 상호 작용하기 위해 사용한다.
 - 마우스 이벤트를 받을 수 있는 보이지 않는 사각 아이템이다.
 - 마우스 영역은 주로 사용자가 시각적인 부분과 상호 작용할 때 명령 내릴 visual item과 함께 사용된다.
+```qml
+    Rectangle {
+        id: rect1
+        x: 12; y: 12
+        width: 76; height: 96
+        color: "lightsteelblue"
+
+        MouseArea{
+            id: area
+            width: parent.width
+            height: parent.height
+            onClicked: rect2.visible = !rect2.visible
+        }
+    }
+```
 </br>
 
 ### 컴포넌트
@@ -84,7 +130,6 @@ Keys.onEscapePressed:{
 - Anchoring의 개념은 Item의 기본 속성 중 일부이며 모든 visual element에서 사용할 수 있다.
 - anchor는 마치 계약처럼 적동하며 경쟁 관계에 있는 좌표값의 변화보다 우선한다.
 - anchor은 상대적인 표현이며 항상 anchor할 대상 element를 필요로 한다.
-
 ```qml
 //element를 부모 element의 영역만큼 채운다.
 anchors.fill : parent
@@ -104,21 +149,82 @@ anchors.centerIn: perent
 ### TextInput
 - textInput은 사용자로 부터 한 줄의 텍스트를 입력 받을 수 있게 한다.
 - 이 element는 validator, inputMask, echoMode와 같은 입력 제약 조건을 지원한다.
+```qml
+TextInput {
+    id: input1
+    x: 8; y: 8
+    width: 96; height: 20
+    focus: true //TextInput 내부를 클릭해서 focus를 변경할 수 있다.
+    text: "Text Input 1"
+    KeyNavigation.tab: input2 //키보드로 focus를 전환할 수 있도록 하기 위해 KeyNavigation 첨부 속성을 사용할 수 있다.
+}
+
+TextInput {
+    id: input2
+    x: 8; y: 36
+    width: 96; height: 20
+    text: "Text Input 2"
+    KeyNavigation.tab: input1
+}
+```
 </br>
 
 ### FocusScope
 - 해당 focus scope이 focus를 받았을 때 마지막으로 focus:true인 자식 element가 focus를 갖도록 한다.
 - 그래서 focus는 마지막으로 focus를 요청하는 자식 element에게 전달된다.
+```qml
+
+```
 </br>
 
 ### EditText
 - text input과 유사하지만 대신 여러줄의 텍스트 편집을 지원한다.
 - 텍스트 제한 속성은 없지만 텍스트가 페인팅될 크기(paintedHeight, paintedWidth)에 제한을 받는다.
+```qml
+TextEdit{
+    id: input
+    anchors.fill: parent
+    anchors.margins: 4
+    focus: true
+}
+```
 </br>
 
 ### Keys
 - 첨부 속성인 keys는 특정 키를 눌렀을 때 코드를 실행할 수 있게 한다.
 - 방향키를 눌렀을 때 사각형을 움직이거나 더하기, 빼기 키를 눌렀을 때 엘리먼트의 크기를 조정하는 등의 구현을 할 수 있다.
+```qml
+import QtQuick
+
+DarkSquare{
+    width: 400; height: 200
+    GreenSquare{
+        id: square
+        x: 8; y: 8
+    }
+    focus: true
+    Keys.onLeftPressed: square.x -= 8
+    Keys.onReightPressed: square.x += 8
+    Keys.onUpPressed: square.x -= 8
+    Keys.onDownPressed: square.x += 8
+    Keys.onPressed: {
+        switch(event.key){
+            case: Qt.Key_Plus:
+                square.scale += 0.2
+                break;
+            case: Qt.Key_Minus:
+                square.scale -= 0.2
+                break;
+        }
+    }
+}
+```
+</br>
+
+### QML 성능
+- QML과 JS는 인터프리터 언어다.
+- 실제 실행되기 전에 컴파일러로 처리할 필요가 없다는 뜻이다.
+- 대신 두 언어는 수행 엔진의 내부에서 실행되는데, 이때 코드를 해석하는 과정은 성능 측면에서 보았을 때 부하가 큰 동작이므로, 이 점을 개선하기 위해 다양한 기법을 사용하게 된다.
 </br>
 
 ## 상태와 전이
