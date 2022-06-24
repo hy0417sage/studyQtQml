@@ -1,10 +1,12 @@
-# QtProjects
+# study-qt
+>**qt와 qml**을 공부하는 레포지터리입니다.
 
-## 도움 받은 강의 및 글
+#### 📎도움 받은 서적과 강의
 - The Qt company, QT6 QML Book
-- Parwiz Forogh, Qt5 C++ GUI Programming : https://www.youtube.com/playlist?list=PL1FgJUcJJ03ve3jJwTocGkxTsGYMni5qD
-- Jina, Qt Development Environment Set: https://m.blog.naver.com/friday_jina/221585498380
-</br>
+- [Parwiz Forogh, Qt5 C++ GUI Programming](https://www.youtube.com/playlist?list=PL1FgJUcJJ03ve3jJwTocGkxTsGYMni5qD)
+- [Jina, Qt Development Environment Set](https://m.blog.naver.com/friday_jina/221585498380)
+
+***
 
 ### QT가 제공하는 가치
 - 크로스 플랫폼
